@@ -15,9 +15,8 @@ class EmailController extends Controller
             'body' => 'This is a test email sent from Laravel.'
         ];
 
-        $recipients = ['recipient1@example.com', 'recipient2@example.com', 'recipient3@example.com'];
+        Mail::to('recipient@example.com')->send(new TestEmail($details));
 
-        Mail::to($recipients)->send(new TestEmail($details));
         return "Email Sent Successfully!";
     }
 }
